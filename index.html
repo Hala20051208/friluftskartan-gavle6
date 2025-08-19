@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Friluftskartan Gävle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://js.arcgis.com/4.29/"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+    <h1 style="text-align:center; margin: 1.5em 0 1em;">Friluftskartan Gävle</h1>
+
+  <!-- Filterpanel -->
+  <div id="filterContainer">
+    <label for="sokSpår"><strong>Sök motionsspår:</strong></label>
+    <input type="text" id="sokSpår" placeholder="Skriv t.ex. Valbo" />
+
+    <label for="langdFilter"><strong>Längdfilter:</strong></label>
+    <select id="langdFilter">
+      <option value="">Visa alla</option>
+      <option value="kort">Kortare än 3 km</option>
+      <option value="medel">3–5 km</option>
+      <option value="lang">Längre än 5 km</option>
+    </select>
+
+    <button id="exportBtn">Exportera GeoJSON</button>
+  </div>
+
+  <!-- Statistikpanel -->
+  <div id="statistikContainer" style="text-align:center;">
+    <div><strong>Statistik:</strong> <span id="statistikText">Laddar...</span></div>
+    <p id="ingetResultat" style="color: red; display: none;">⚠️ Inga spår matchar filtreringen.</p>
+  </div>
+
+  <!-- Checkrutor för lager -->
+  <div id="checkboxContainer">
+    <label><input type="checkbox" id="motionssparBox" checked> Motionsspår</label>
+    <label><input type="checkbox" id="pulkabackarBox" checked> Pulkabackar</label>
+    <label><input type="checkbox" id="aktivitetsytorBox" checked> Aktivitetsytor</label>
+    <label><input type="checkbox" id="badplatserBox" checked> Badplatser</label>
+    <label><input type="checkbox" id="parkmoblerBox" checked> Parkmöbler</label>
+    <label><input type="checkbox" id="papperskorgarBox" checked> Papperskorgar</label>
+    <label><input type="checkbox" id="idrottsanlaggningarBox" checked> Idrottsanläggningar</label>
+    <label><input type="checkbox" id="utegymBox" checked> Utegym</label>
+    <label><input type="checkbox" id="lekplatserBox" checked> Lekplatser</label>
+    <label><input type="checkbox" id="toaletterBox" checked> Toaletter</label>
+    <label><input type="checkbox" id="livraddningBox" checked> Livräddningsutrustning</label>
+  </div>
+
+  <!-- Snygga hörnknappar -->
+  <div class="bottom-menu">
+    <button id="polygonBtn">✏️ Rita polygon</button>
+    <button id="legendToggleBtn">📘 Teckenförklaring</button>
+  </div>
+  
+
+
+  <!-- Teckenförklaring-box -->
+  <div id="legendContainer" style="
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px gray;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+  ">
+    <h3>Teckenförklaring – Motionsspår</h3>
+    <ul id="legendList" style="list-style: none; padding-left: 0;"></ul>
+  </div>
+
+  <!-- POI-formulär -->
+  <div id="poiForm" style="display:none; padding: 1em; background: #f0f0f0;">
+    <label>Namn: <input type="text" id="poiName"></label><br>
+    <label>Beskrivning: <input type="text" id="poiDesc"></label><br>
+    <button id="savePoiBtn">Spara POI</button>
+  </div>
+
+  <!-- Karta -->
+  <div id="viewDiv"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

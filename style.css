@@ -1,0 +1,192 @@
+/* Grundstil */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f5;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Kartvyn */
+  #viewDiv {
+    height: 100vh;
+    z-index: 1;
+  }
+  
+  /* Paneler */
+  #filterContainer,
+  #statistikContainer,
+  #checkboxContainer {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #filterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #filterContainer input[type="text"],
+  #filterContainer select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    min-width: 180px;
+  }
+  
+  #filterContainer button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  #filterContainer button:hover {
+    background-color: #005fa3;
+  }
+  
+  /* Statistik */
+  #statistikText {
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+  }
+  
+  #diagram {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto;
+  }
+  
+  /* Checkboxar */
+  #checkboxContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  #checkboxContainer label {
+    background-color: #f9f9f9;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+  
+  /* POI-formulär */
+  #poiForm {
+    margin: 10px auto;
+    max-width: 400px;
+    background: #fff6d5;
+    padding: 15px;
+    border: 1px solid #e0c96d;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  #poiForm input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #savePoiBtn {
+    background-color: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  #savePoiBtn:hover {
+    background-color: #218838;
+  }
+  
+  /* Teckenförklaring */
+  #legendContainer {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px gray;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+  }
+  
+  #legendContainer h3 {
+    margin-top: 0;
+  }
+  
+  /* Responsivitet */
+  @media (max-width: 600px) {
+    #filterContainer {
+      flex-direction: column;
+    }
+  
+    #checkboxContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .corner-button-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+  }
+  
+  .corner-button-container button {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+  }
+  
+  .corner-button-container button:hover {
+    background-color: #1976d2;
+  }
+  
+  
+  
+  
